@@ -1,0 +1,22 @@
+﻿ .env
+**/.env
+.env.*
+**/.env.*
+
+.vscode/
+**/.vscode/
+
+.azure/
+**/.azure/
+
+local.settings.json
+**/local.settings.json
+
+node_modules/
+dist/
+build/
+coverage/
+
+*.publishsettings
+*.pubxml
+*.pubxml.user
