@@ -1,0 +1,104 @@
+﻿<html>
+<head>
+<meta charset="utf-8">
+<title>Evidências - Vertical Slice, Clean Architecture e ArchUnitTS</title>
+<style>
+body { font-family: Calibri, Arial, sans-serif; font-size: 11pt; }
+h1 { color: #1f4e79; }
+h2 { color: #2f5597; margin-top: 22px; }
+code, pre { font-family: Consolas, monospace; }
+pre { background: #f2f2f2; border: 1px solid #d9d9d9; padding: 8px; }
+.placeholder { border: 2px dashed #999; padding: 18px; margin: 10px 0; color: #666; }
+</style>
+</head>
+<body>
+<h1>Documento de Evidências - Arquitetura Backend</h1>
+<p><strong>Projeto:</strong> ARQUITETURA-CLOUD</p>
+<p><strong>Tecnologia backend:</strong> Node.js</p>
+<p><strong>Ferramenta de testes de arquitetura:</strong> ArchUnitTS, pacote npm <code>archunit</code>, com Jest.</p>
+
+<h2>1. Objetivo</h2>
+<p>Aplicar Vertical Slice e Clean Architecture nos projetos backend: BFF e microservices, além de adicionar testes unitários de arquitetura.</p>
+
+<h2>2. Backends Refatorados</h2>
+<ul>
+<li><code>bff</code></li>
+<li><code>ms-products</code></li>
+<li><code>ms-orders</code></li>
+</ul>
+
+<h2>3. Evidência de Estrutura - Vertical Slice e Clean Architecture</h2>
+<p>Os módulos backend foram organizados em camadas e features:</p>
+<pre>
+bff/src/features/aggregation/{application,infrastructure,presentation}
+bff/src/features/admin-orders/{infrastructure,presentation}
+
+ms-products/src/features/products/{domain,application,infrastructure,presentation}
+
+ms-orders/src/features/orders/{domain,application,infrastructure,presentation}
+</pre>
+
+<p>Arquivos de configuração e componentes compartilhados:</p>
+<pre>
+bff/src/config
+bff/src/shared
+ms-products/src/config
+ms-products/src/shared
+ms-orders/src/config
+ms-orders/src/shared
+</pre>
+
+<h2>4. Evidência de Testes de Arquitetura</h2>
+<p>Foram adicionados testes em:</p>
+<pre>
+bff/tests/architecture.test.js
+ms-products/tests/architecture.test.js
+ms-orders/tests/architecture.test.js
+</pre>
+
+<h2>5. Comandos Executados</h2>
+<pre>
+cd bff
+npm run test:architecture
+
+cd ../ms-products
+npm run test:architecture
+
+cd ../ms-orders
+npm run test:architecture
+</pre>
+
+<h2>6. Resultado dos Testes</h2>
+<pre>
+bff: Test Suites: 1 passed, Tests: 4 passed
+ms-products: Test Suites: 1 passed, Tests: 4 passed
+ms-orders: Test Suites: 1 passed, Tests: 4 passed
+</pre>
+
+<h2>7. Prints dos Testes</h2>
+<p>Inserir abaixo os prints de tela do terminal com os testes executados.</p>
+<div class="placeholder">Colar aqui o print do comando: cd bff && npm run test:architecture</div>
+<div class="placeholder">Colar aqui o print do comando: cd ms-products && npm run test:architecture</div>
+<div class="placeholder">Colar aqui o print do comando: cd ms-orders && npm run test:architecture</div>
+
+<h2>8. Evidência do Código Fonte no GitHub</h2>
+<p>Inserir os links do GitHub abaixo após fazer push:</p>
+<ul>
+<li>BFF: colocar link para <code>bff/src/features</code> e <code>bff/tests/architecture.test.js</code></li>
+<li>Products: colocar link para <code>ms-products/src/features</code> e <code>ms-products/tests/architecture.test.js</code></li>
+<li>Orders: colocar link para <code>ms-orders/src/features</code> e <code>ms-orders/tests/architecture.test.js</code></li>
+</ul>
+
+<h2>9. Validação Técnica</h2>
+<p>Além dos testes de arquitetura, foram executadas validações de sintaxe e carregamento dos apps:</p>
+<pre>
+node --check src/**/*.js
+node -e "require('./src/app')"
+
+Resultados:
+bff app ok
+products app ok
+orders app ok
+</pre>
+</body>
+</html>

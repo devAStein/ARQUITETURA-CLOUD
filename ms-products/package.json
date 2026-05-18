@@ -4,7 +4,8 @@
   "main": "src/server.js",
   "scripts": {
     "dev": "node src/server.js",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "test:architecture": "jest --runInBand tests/architecture.test.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -13,5 +14,9 @@
     "mongoose": "^8.6.1",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "archunit": "^2.3.0",
+    "jest": "^30.4.2"
   }
 }

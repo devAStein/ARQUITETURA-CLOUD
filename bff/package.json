@@ -4,7 +4,8 @@
   "main": "src/server.js",
   "scripts": {
     "dev": "node src/server.js",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "test:architecture": "jest --runInBand tests/architecture.test.js"
   },
   "dependencies": {
     "axios": "^1.9.0",
@@ -12,5 +13,9 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "archunit": "^2.3.0",
+    "jest": "^30.4.2"
   }
 }
